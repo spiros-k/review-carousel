@@ -186,7 +186,6 @@ document.getElementById("random-review").addEventListener("click", () => {
     //     nextNum = randomNum + 1;
     // }
 
-    
 })
 
 
@@ -195,12 +194,5 @@ function previousReviewFunction() {
 }
 
 function nextReviewFunction() {
-    
-  nextNum = 0;  
-
-  array.forEach(element => {
-    
-  });
         
-
 }
