@@ -35,42 +35,38 @@ const users = {
     5 : {
         name: "Sandy",
         img: "https://images.pexels.com/photos/19138621/pexels-photo-19138621.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-        review: `McClintock wrote to Before & After to explain his discovery:
+        review: `McClintock wrote:
                 “What I find remarkable is that this text has been the industry's standard dummy text ever since some printer in the 1500s 
                 took a galley of type and scrambled it to make a type specimen book; it has survived not only four centuries of letter-by-letter
                 resetting but even the leap into electronic typesetting, essentially unchanged except for an occasional 'ing' or 'y' thrown in. 
-                It's ironic that when the then-understood Latin was scrambled, it became as incomprehensible as Greek; the phrase 
-                'it's Greek to me' and 'greeking' have common semantic roots!”`,
+                It's ironic that when the then-understood Latin was scrambled, it became as incomprehensible as Greek;"`,
     },
 }
 
-let previousNum;
-let nextNum;
+let currentReview;
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    userName = users[0].name;
+    currentReview = 0;
+    userName = users[currentReview].name;
     document.getElementById("user-name").textContent = userName;
-    userReview = users[0].review;
+    userReview = users[currentReview].review;
     document.getElementById("user-review").textContent = userReview;
-    userImage = users[0].img;
+    userImage = users[currentReview].img;
     document.getElementById("user-img").src = userImage;
-    number = 0;
-    document.getElementById("previous-review").classList.add("hidden");
 })
 
 
-document.getElementById("previous-review").addEventListener("click", function previousReviewFunction() {
-    number -= 1;
-    switch(number) {
-        case 0:
-            userName = users[Object.keys(users).length].name;
+ document.getElementById("previous-review").addEventListener("click", function previousReviewFunction() {
+
+    switch((document.getElementById("user-name").textContent)) {
+        case users[5].name:
+            userName = users[5].name;
             document.getElementById("user-name").textContent = userName;
             userReview = users[5].review;
             document.getElementById("user-review").textContent = userReview;
             userImage = users[5].img;
             document.getElementById("user-img").src = userImage;
-            break;
-        case 1:
+        case users[5].name:
             userName = users[4].name;
             document.getElementById("user-name").textContent = userName;
             userReview = users[4].review;
@@ -78,7 +74,7 @@ document.getElementById("previous-review").addEventListener("click", function pr
             userImage = users[4].img;
             document.getElementById("user-img").src = userImage;
             break;
-        case 2:
+        case users[4].name:
             userName = users[3].name;
             document.getElementById("user-name").textContent = userName;
             userReview = users[3].review;
@@ -86,7 +82,7 @@ document.getElementById("previous-review").addEventListener("click", function pr
             userImage = users[3].img;
             document.getElementById("user-img").src = userImage;
             break;
-        case 3:
+        case users[3].name:
             userName = users[2].name;
             document.getElementById("user-name").textContent = userName;
             userReview = users[2].review;
@@ -94,7 +90,7 @@ document.getElementById("previous-review").addEventListener("click", function pr
             userImage = users[2].img;
             document.getElementById("user-img").src = userImage;
             break;
-        case 4:
+        case users[2].name:
             userName = users[1].name;
             document.getElementById("user-name").textContent = userName;
             userReview = users[1].review;
@@ -102,7 +98,7 @@ document.getElementById("previous-review").addEventListener("click", function pr
             userImage = users[1].img;
             document.getElementById("user-img").src = userImage;
             break;
-        case 5:
+        case users[1].name:
             userName = users[0].name;
             document.getElementById("user-name").textContent = userName;
             userReview = users[0].review;
@@ -110,11 +106,76 @@ document.getElementById("previous-review").addEventListener("click", function pr
             userImage = users[0].img;
             document.getElementById("user-img").src = userImage;
             break;
+        case users[0].name:
+            userName = users[5].name;
+            document.getElementById("user-name").textContent = userName;
+            userReview = users[5].review;
+            document.getElementById("user-review").textContent = userReview;
+            userImage = users[5].img;
+            document.getElementById("user-img").src = userImage;
+    }
+ })
+
+
+document.getElementById("next-review").addEventListener("click", () => {
+
+    switch((document.getElementById("user-name").textContent)) {
+        case users[1].name:
+            userName = users[1].name;
+            document.getElementById("user-name").textContent = userName;
+            userReview = users[1].review;
+            document.getElementById("user-review").textContent = userReview;
+            userImage = users[1].img;
+            document.getElementById("user-img").src = userImage;  
+        case users[1].name:
+            userName = users[2].name;
+            document.getElementById("user-name").textContent = userName;
+            userReview = users[2].review;
+            document.getElementById("user-review").textContent = userReview;
+            userImage = users[2].img;
+            document.getElementById("user-img").src = userImage;
+            break;
+        case users[2].name:
+            userName = users[3].name;
+            document.getElementById("user-name").textContent = userName;
+            userReview = users[3].review;
+            document.getElementById("user-review").textContent = userReview;
+            userImage = users[3].img;
+            document.getElementById("user-img").src = userImage;
+            break;
+        case users[3].name:
+            userName = users[4].name;
+            document.getElementById("user-name").textContent = userName;
+            userReview = users[4].review;
+            document.getElementById("user-review").textContent = userReview;
+            userImage = users[4].img;
+            document.getElementById("user-img").src = userImage;
+            break;
+        case users[4].name:
+            userName = users[5].name;
+            document.getElementById("user-name").textContent = userName;
+            userReview = users[5].review;
+            document.getElementById("user-review").textContent = userReview;
+            userImage = users[5].img;
+            document.getElementById("user-img").src = userImage;
+            break;
+        case users[5].name:
+            userName = users[0].name;
+            document.getElementById("user-name").textContent = userName;
+            userReview = users[0].review;
+            document.getElementById("user-review").textContent = userReview;
+            userImage = users[0].img;
+            document.getElementById("user-img").src = userImage;
+            break;
+        case users[0].name:
+            userName = users[1].name;
+            document.getElementById("user-name").textContent = userName;
+            userReview = users[1].review;
+            document.getElementById("user-review").textContent = userReview;
+            userImage = users[1].img;
+            document.getElementById("user-img").src = userImage;
     }
 })
-
-
-document.getElementById("next-review").addEventListener("click", nextReviewFunction())
 
 
 document.getElementById("random-review").addEventListener("click", () => {
@@ -128,7 +189,6 @@ document.getElementById("random-review").addEventListener("click", () => {
             document.getElementById("user-review").textContent = userReview;
             userImage = users[0].img;
             document.getElementById("user-img").src = userImage;
-            document.getElementById("previous-review").classList.add("hidden");
             break;
         case 1:
             userName = users[1].name;
@@ -137,7 +197,6 @@ document.getElementById("random-review").addEventListener("click", () => {
             document.getElementById("user-review").textContent = userReview;
             userImage = users[1].img;
             document.getElementById("user-img").src = userImage;
-            document.getElementById("previous-review").classList.remove("hidden");
             break;
         case 2:
             userName = users[2].name;
@@ -146,7 +205,6 @@ document.getElementById("random-review").addEventListener("click", () => {
             document.getElementById("user-review").textContent = userReview;
             userImage = users[2].img;
             document.getElementById("user-img").src = userImage;
-            document.getElementById("previous-review").classList.remove("hidden");
             break;
         case 3:
             userName = users[3].name;
@@ -155,7 +213,6 @@ document.getElementById("random-review").addEventListener("click", () => {
             document.getElementById("user-review").textContent = userReview;
             userImage = users[3].img;
             document.getElementById("user-img").src = userImage;
-            document.getElementById("previous-review").classList.remove("hidden");
             break;
         case 4:
             userName = users[4].name;
@@ -164,7 +221,6 @@ document.getElementById("random-review").addEventListener("click", () => {
             document.getElementById("user-review").textContent = userReview;
             userImage = users[4].img;
             document.getElementById("user-img").src = userImage;
-            document.getElementById("previous-review").classList.remove("hidden");
             break;
         case 5:
             userName = users[5].name;
@@ -173,26 +229,6 @@ document.getElementById("random-review").addEventListener("click", () => {
             document.getElementById("user-review").textContent = userReview;
             userImage = users[5].img;
             document.getElementById("user-img").src = userImage;
-            document.getElementById("next-review").classList.add("hidden");
             break;
     }
-
-    // if(randomNum == 0) {
-    //     nextNum = randomNum + 1;
-    // } else if(randomNum == Object.keys(users).length) {
-    //     previousNum = randomNum - 1;
-    // } else {
-    //     previousNum = randomNum - 1;
-    //     nextNum = randomNum + 1;
-    // }
-
 })
-
-
-function previousReviewFunction() {
-
-}
-
-function nextReviewFunction() {
-        
-}
